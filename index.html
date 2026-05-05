@@ -2,1156 +2,188 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Soluciones Académicas | Asesorías Personalizadas</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurant Doña Remedios | Chicharrón y Fricasé en La Paz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --navy:    #1E3A8A;
-      --navy-dark: #162d6e;
-      --navy-deeper: #0f1f50;
-      --sky:     #38BDF8;
-      --yellow:  #FACC15;
-      --white:   #FFFFFF;
-      --off-white: #F0F6FF;
-      --text-dark: #0f172a;
-      --text-muted: #64748b;
-      --border: rgba(56,189,248,0.18);
-      --glass: rgba(255,255,255,0.06);
-      --radius: 16px;
-      --radius-lg: 24px;
-      --shadow: 0 8px 32px rgba(14,30,80,0.18);
-      --shadow-lg: 0 20px 60px rgba(14,30,80,0.28);
+      --bg: #fffaf3;
+      --ink: #25170f;
+      --muted: #6e5a4a;
+      --brand: #b13218;
+      --brand-dark: #8a2410;
+      --accent: #ff9f1c;
+      --green: #25d366;
+      --card: #ffffff;
+      --line: #f0dcc9;
+      --radius: 18px;
+      --shadow: 0 14px 35px rgba(70, 30, 8, .12);
     }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; font-size: 16px; }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--white);
-      color: var(--text-dark);
-      overflow-x: hidden;
-    }
-
-    /* ── FLOATING BUTTON ─────────────────────────────────── */
-    .float-btn {
-      position: fixed;
-      bottom: 28px;
-      right: 24px;
-      z-index: 999;
-      background: var(--yellow);
-      color: var(--navy-deeper);
-      font-family: 'Poppins', sans-serif;
-      font-weight: 700;
-      font-size: .95rem;
-      letter-spacing: .02em;
-      padding: 14px 26px;
-      border-radius: 50px;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 6px 24px rgba(250,204,21,0.45);
-      transition: transform .2s, box-shadow .2s;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .float-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(250,204,21,0.55); }
-    .float-btn svg { width: 18px; height: 18px; }
-
-    /* ── NAV ─────────────────────────────────────────────── */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(30,58,138,.97);
-      backdrop-filter: blur(12px);
-      padding: 0 5%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 68px;
-      border-bottom: 1px solid rgba(56,189,248,0.15);
-    }
-    .logo {
-      font-weight: 800;
-      font-size: 1.15rem;
-      color: var(--white);
-      letter-spacing: -.01em;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .logo-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--yellow); display: inline-block; }
-    nav a.nav-cta {
-      background: var(--yellow);
-      color: var(--navy-deeper);
-      font-weight: 700;
-      font-size: .88rem;
-      padding: 10px 22px;
-      border-radius: 50px;
-      text-decoration: none;
-      transition: transform .18s, box-shadow .18s;
-      box-shadow: 0 4px 14px rgba(250,204,21,0.35);
-    }
-    nav a.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 7px 20px rgba(250,204,21,0.45); }
-
-    /* ── HERO ─────────────────────────────────────────────── */
-    #hero {
-      min-height: 92vh;
-      background: linear-gradient(135deg, var(--navy-deeper) 0%, var(--navy) 55%, #1a5cb0 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 80px 5% 60px;
-      position: relative;
-      overflow: hidden;
-    }
-    #hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(56,189,248,0.12) 0%, transparent 70%),
-        radial-gradient(ellipse 45% 45% at 80% 80%, rgba(250,204,21,0.07) 0%, transparent 60%);
-      pointer-events: none;
-    }
-    /* Decorative grid lines */
-    #hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(56,189,248,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(56,189,248,0.05) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
-    }
-
-    .hero-inner { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(56,189,248,0.15);
-      border: 1px solid rgba(56,189,248,0.35);
-      color: var(--sky);
-      font-size: .8rem;
-      font-weight: 600;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      padding: 7px 18px;
-      border-radius: 50px;
-      margin-bottom: 28px;
-      animation: fadeDown .7s ease both;
-    }
-    .hero-badge span { width: 7px; height: 7px; border-radius: 50%; background: var(--sky); animation: pulse 1.8s infinite; }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: .5; transform: scale(.7); }
-    }
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(22px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero-h1 {
-      font-size: clamp(2.1rem, 5.5vw, 3.6rem);
-      font-weight: 900;
-      line-height: 1.15;
-      color: var(--white);
-      letter-spacing: -.02em;
-      margin-bottom: 22px;
-      animation: fadeUp .7s .15s ease both;
-    }
-    .hero-h1 em {
-      font-style: normal;
-      color: var(--yellow);
-      position: relative;
-    }
-    .hero-sub {
-      font-size: clamp(1rem, 2.2vw, 1.2rem);
-      color: rgba(255,255,255,.78);
-      font-weight: 400;
-      max-width: 560px;
-      margin: 0 auto 38px;
-      line-height: 1.7;
-      animation: fadeUp .7s .28s ease both;
-    }
-    .hero-cta-wrap { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; animation: fadeUp .7s .4s ease both; }
-
-    .btn-primary {
-      background: var(--yellow);
-      color: var(--navy-deeper);
-      font-family: 'Poppins', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 16px 34px;
-      border-radius: 50px;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      box-shadow: 0 8px 28px rgba(250,204,21,0.4);
-      transition: transform .2s, box-shadow .2s;
-    }
-    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(250,204,21,0.5); }
-
-    .btn-ghost {
-      background: transparent;
-      color: var(--white);
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      font-size: .95rem;
-      padding: 15px 28px;
-      border-radius: 50px;
-      border: 1.5px solid rgba(255,255,255,0.35);
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      transition: background .2s, border-color .2s;
-    }
-    .btn-ghost:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.6); }
-
-    .hero-stats {
-      display: flex;
-      justify-content: center;
-      gap: clamp(24px, 5vw, 56px);
-      margin-top: 56px;
-      padding-top: 40px;
-      border-top: 1px solid rgba(255,255,255,.1);
-      animation: fadeUp .7s .55s ease both;
-    }
-    .stat-item { text-align: center; }
-    .stat-num {
-      font-size: clamp(1.8rem, 4vw, 2.4rem);
-      font-weight: 900;
-      color: var(--yellow);
-      line-height: 1;
-    }
-    .stat-label { font-size: .78rem; color: rgba(255,255,255,.6); margin-top: 4px; font-weight: 500; letter-spacing: .03em; }
-
-    /* ── SECTION BASE ──────────────────────────────────────── */
-    section { padding: 80px 5%; }
-
-    .section-label {
-      display: inline-block;
-      font-size: .75rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--sky);
-      margin-bottom: 12px;
-    }
-    h2.section-title {
-      font-size: clamp(1.7rem, 3.5vw, 2.5rem);
-      font-weight: 800;
-      color: var(--navy-deeper);
-      line-height: 1.25;
-      letter-spacing: -.02em;
-      margin-bottom: 16px;
-    }
-    h2.section-title em { font-style: normal; color: var(--navy); }
-    .section-sub {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      max-width: 580px;
-      line-height: 1.7;
-    }
-    .centered { text-align: center; }
-    .centered .section-sub { margin: 0 auto; }
-
-    /* ── FILTER / "Para quién es" ───────────────────────────── */
-    #filter {
-      background: var(--off-white);
-      border-top: 1px solid rgba(30,58,138,0.07);
-      border-bottom: 1px solid rgba(30,58,138,0.07);
-    }
-    .filter-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin-top: 44px;
-    }
-    .filter-card {
-      background: var(--white);
-      border: 1.5px solid rgba(30,58,138,0.08);
-      border-radius: var(--radius);
-      padding: 28px 24px;
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      box-shadow: 0 2px 12px rgba(30,58,138,0.06);
-      transition: transform .2s, box-shadow .2s;
-    }
-    .filter-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-    .filter-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--navy), #2563eb);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      font-size: 1.2rem;
-    }
-    .filter-card h3 { font-size: .95rem; font-weight: 700; color: var(--navy-deeper); margin-bottom: 5px; }
-    .filter-card p { font-size: .84rem; color: var(--text-muted); line-height: 1.55; }
-
-    /* ── SERVICES ───────────────────────────────────────────── */
-    #servicios { background: var(--white); }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
-      margin-top: 48px;
-    }
-    .service-card {
-      background: var(--white);
-      border: 1.5px solid rgba(30,58,138,0.1);
-      border-radius: var(--radius-lg);
-      padding: 36px 28px 30px;
-      text-align: center;
-      transition: transform .22s, box-shadow .22s, border-color .22s;
-      box-shadow: 0 2px 16px rgba(30,58,138,0.06);
-      position: relative;
-      overflow: hidden;
-    }
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--navy), var(--sky));
-      opacity: 0;
-      transition: opacity .22s;
-    }
-    .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: var(--sky); }
-    .service-card:hover::before { opacity: 1; }
-    .service-emoji { font-size: 2.2rem; margin-bottom: 16px; display: block; }
-    .service-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy-deeper); margin-bottom: 10px; }
-    .service-card p { font-size: .85rem; color: var(--text-muted); line-height: 1.6; }
-    .service-tag {
-      display: inline-block;
-      margin-top: 14px;
-      padding: 4px 14px;
-      background: var(--off-white);
-      border-radius: 50px;
-      font-size: .72rem;
-      font-weight: 600;
-      color: var(--navy);
-      letter-spacing: .04em;
-    }
-
-    /* ── HOW IT WORKS ───────────────────────────────────────── */
-    #como-funciona {
-      background: linear-gradient(160deg, var(--navy-deeper) 0%, var(--navy) 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    #como-funciona::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(56,189,248,0.1) 0%, transparent 65%);
-    }
-    #como-funciona .section-label { color: var(--sky); }
-    #como-funciona h2.section-title { color: var(--white); }
-    #como-funciona .section-sub { color: rgba(255,255,255,.65); }
-    .steps-wrap {
-      display: flex;
-      gap: 0;
-      margin-top: 52px;
-      position: relative;
-      z-index: 1;
-      flex-wrap: wrap;
-    }
-    .step {
-      flex: 1;
-      min-width: 200px;
-      text-align: center;
-      padding: 0 24px;
-      position: relative;
-    }
-    .step:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      top: 34px;
-      right: -2px;
-      width: 4px;
-      height: 4px;
-      background: var(--sky);
-      border-radius: 50%;
-    }
-    .step-num {
-      width: 68px;
-      height: 68px;
-      border-radius: 50%;
-      background: rgba(56,189,248,0.12);
-      border: 2px solid rgba(56,189,248,0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 22px;
-      font-size: 1.55rem;
-      font-weight: 900;
-      color: var(--sky);
-      position: relative;
-    }
-    .step h3 { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 10px; }
-    .step p { font-size: .85rem; color: rgba(255,255,255,.65); line-height: 1.65; }
-
-    /* ── VALUE ─────────────────────────────────────────────── */
-    #valor {
-      background: var(--off-white);
-    }
-    .value-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 56px;
-      align-items: center;
-      margin-top: 16px;
-    }
-    .value-list { list-style: none; display: flex; flex-direction: column; gap: 18px; margin-top: 32px; }
-    .value-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 18px 20px;
-      box-shadow: 0 2px 10px rgba(30,58,138,0.06);
-      border-left: 4px solid var(--sky);
-      font-size: .9rem;
-      color: var(--text-dark);
-      line-height: 1.55;
-    }
-    .check-icon {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: var(--navy);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-    .check-icon svg { width: 11px; height: 11px; }
-
-    .value-visual {
-      background: linear-gradient(145deg, var(--navy), #1a5cb0);
-      border-radius: var(--radius-lg);
-      padding: 40px 36px;
-      color: var(--white);
-      box-shadow: var(--shadow-lg);
-      position: relative;
-      overflow: hidden;
-    }
-    .value-visual::before {
-      content: '';
-      position: absolute;
-      top: -40px; right: -40px;
-      width: 200px; height: 200px;
-      border-radius: 50%;
-      background: rgba(56,189,248,0.1);
-    }
-    .value-visual h3 {
-      font-size: 1.35rem;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-    .value-visual .tagline {
-      font-size: .88rem;
-      color: rgba(255,255,255,.7);
-      margin-bottom: 28px;
-    }
-    .include-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 0;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-      font-size: .88rem;
-    }
-    .include-item:last-child { border-bottom: none; }
-    .include-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--yellow);
-      flex-shrink: 0;
-    }
-    .price-tag {
-      margin-top: 28px;
-      background: rgba(250,204,21,0.15);
-      border: 1px solid rgba(250,204,21,0.3);
-      border-radius: var(--radius);
-      padding: 18px 20px;
-      text-align: center;
-    }
-    .price-label { font-size: .78rem; color: rgba(255,255,255,.6); letter-spacing: .06em; text-transform: uppercase; }
-    .price-duration { font-size: .85rem; color: var(--yellow); font-weight: 600; margin-top: 4px; }
-
-    /* ── RESULTS ───────────────────────────────────────────── */
-    #resultados { background: var(--white); }
-    .results-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      margin-top: 48px;
-    }
-    .result-card {
-      border-radius: var(--radius-lg);
-      padding: 32px 24px;
-      text-align: center;
-      transition: transform .2s;
-    }
-    .result-card:hover { transform: translateY(-5px); }
-    .result-card:nth-child(1) { background: #eff6ff; }
-    .result-card:nth-child(2) { background: #fefce8; }
-    .result-card:nth-child(3) { background: #ecfdf5; }
-    .result-card:nth-child(4) { background: #fdf4ff; }
-    .result-emoji { font-size: 2.4rem; display: block; margin-bottom: 14px; }
-    .result-card h3 { font-size: .98rem; font-weight: 700; color: var(--navy-deeper); margin-bottom: 8px; }
-    .result-card p { font-size: .82rem; color: var(--text-muted); line-height: 1.6; }
-
-    /* ── TESTIMONIALS ──────────────────────────────────────── */
-    #testimonios {
-      background: var(--off-white);
-    }
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin-top: 48px;
-    }
-    .testi-card {
-      background: var(--white);
-      border-radius: var(--radius-lg);
-      padding: 32px 28px;
-      box-shadow: 0 4px 20px rgba(30,58,138,0.07);
-      border: 1.5px solid rgba(30,58,138,0.07);
-      transition: transform .2s, box-shadow .2s;
-      position: relative;
-    }
-    .testi-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-    .testi-card::before {
-      content: '\201C';
-      position: absolute;
-      top: 20px; right: 24px;
-      font-size: 4rem;
-      color: var(--sky);
-      opacity: .2;
-      font-family: Georgia, serif;
-      line-height: 1;
-    }
-    .stars { color: var(--yellow); font-size: 1rem; margin-bottom: 14px; letter-spacing: 2px; }
-    .testi-text { font-size: .9rem; color: var(--text-dark); line-height: 1.7; margin-bottom: 22px; }
-    .testi-author { display: flex; align-items: center; gap: 12px; }
-    .testi-avatar {
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: .95rem; color: var(--white);
-      flex-shrink: 0;
-    }
-    .av1 { background: linear-gradient(135deg, #1E3A8A, #38BDF8); }
-    .av2 { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
-    .av3 { background: linear-gradient(135deg, #059669, #34d399); }
-    .testi-name { font-weight: 700; font-size: .9rem; color: var(--navy-deeper); }
-    .testi-detail { font-size: .77rem; color: var(--text-muted); margin-top: 2px; }
-
-    /* ── SCARCITY ──────────────────────────────────────────── */
-    #escasez {
-      background: linear-gradient(135deg, #0f1f50 0%, var(--navy) 100%);
-      padding: 60px 5%;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    #escasez::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 55% 55% at 50% 50%, rgba(250,204,21,0.07) 0%, transparent 65%);
-    }
-    .scarcity-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(250,204,21,0.15);
-      border: 1px solid rgba(250,204,21,0.3);
-      color: var(--yellow);
-      font-weight: 600;
-      font-size: .85rem;
-      padding: 8px 22px;
-      border-radius: 50px;
-      margin-bottom: 22px;
-      position: relative;
-      z-index: 1;
-    }
-    .blink { animation: blink-anim 1.2s infinite; }
-    @keyframes blink-anim {
-      0%, 100% { opacity: 1; }
-      50% { opacity: .3; }
-    }
-    #escasez h2 {
-      font-size: clamp(1.5rem, 3.5vw, 2.2rem);
-      font-weight: 800;
-      color: var(--white);
-      margin-bottom: 14px;
-      position: relative;
-      z-index: 1;
-    }
-    #escasez p {
-      color: rgba(255,255,255,.7);
-      font-size: 1rem;
-      max-width: 500px;
-      margin: 0 auto 30px;
-      line-height: 1.7;
-      position: relative;
-      z-index: 1;
-    }
-    .slots-bar {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      margin-bottom: 30px;
-      position: relative;
-      z-index: 1;
-      flex-wrap: wrap;
-    }
-    .slot { width: 36px; height: 36px; border-radius: 8px; font-size: .75rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
-    .slot.taken { background: rgba(255,255,255,.12); color: rgba(255,255,255,.35); text-decoration: line-through; }
-    .slot.free { background: var(--yellow); color: var(--navy-deeper); }
-    .slots-label { font-size: .8rem; color: rgba(255,255,255,.6); position: relative; z-index: 1; margin-bottom: 28px; }
-
-    /* ── BOOKING ───────────────────────────────────────────── */
-    #reservar {
-      background: var(--white);
-      padding: 80px 5%;
-    }
-    .booking-header { text-align: center; max-width: 620px; margin: 0 auto 40px; }
-    .booking-meta {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-      margin-bottom: 36px;
-    }
-    .meta-pill {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--off-white);
-      border: 1px solid rgba(30,58,138,0.12);
-      border-radius: 50px;
-      padding: 8px 18px;
-      font-size: .82rem;
-      font-weight: 600;
-      color: var(--navy);
-    }
-    .meta-pill svg { width: 15px; height: 15px; }
-    .calendly-wrapper {
-      max-width: 900px;
-      margin: 0 auto;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-      border: 1.5px solid rgba(30,58,138,0.1);
-    }
-    .calendly-inline-widget { width: 100%; }
-
-    /* ── FINAL CTA ─────────────────────────────────────────── */
-    #cta-final {
-      background: linear-gradient(135deg, var(--navy-deeper), var(--navy));
-      padding: 90px 5%;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    #cta-final::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle 400px at 20% 50%, rgba(56,189,248,0.08) 0%, transparent 60%),
-        radial-gradient(circle 300px at 80% 50%, rgba(250,204,21,0.06) 0%, transparent 60%);
-    }
-    #cta-final h2 {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 900;
-      color: var(--white);
-      margin-bottom: 14px;
-      position: relative;
-      z-index: 1;
-      letter-spacing: -.02em;
-    }
-    #cta-final p {
-      color: rgba(255,255,255,.7);
-      font-size: 1.05rem;
-      max-width: 500px;
-      margin: 0 auto 36px;
-      line-height: 1.7;
-      position: relative;
-      z-index: 1;
-    }
-    #cta-final .btn-primary { position: relative; z-index: 1; font-size: 1.05rem; padding: 18px 42px; }
-
-    /* ── FOOTER ────────────────────────────────────────────── */
-    footer {
-      background: var(--navy-deeper);
-      padding: 32px 5%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-      border-top: 1px solid rgba(255,255,255,.07);
-    }
-    .footer-logo {
-      font-weight: 800;
-      font-size: 1rem;
-      color: var(--white);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    footer p { font-size: .8rem; color: rgba(255,255,255,.45); }
-
-    /* ── RESPONSIVE ────────────────────────────────────────── */
-    @media (max-width: 768px) {
-      section { padding: 60px 5%; }
-      .value-inner { grid-template-columns: 1fr; gap: 32px; }
-      .steps-wrap { flex-direction: column; gap: 36px; }
-      .step:not(:last-child)::after { display: none; }
-      footer { flex-direction: column; text-align: center; }
-      .hero-stats { flex-direction: column; gap: 24px; }
-    }
-    @media (max-width: 480px) {
-      nav { padding: 0 4%; }
-      .logo { font-size: .95rem; }
+      font-family: "Montserrat", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.45;
+    }
+    .wrap { width: min(1080px, 92%); margin: 0 auto; }
+    section { padding: 56px 0; }
+    h1,h2,h3 { line-height: 1.15; }
+    .tag { display: inline-block; background: #ffe6d3; color: var(--brand-dark); font-weight: 700; padding: 8px 14px; border-radius: 999px; font-size: .85rem; }
+    .hero h1 { font-size: clamp(1.9rem, 6.5vw, 3.2rem); font-weight: 900; margin: 16px 0 12px; }
+    .hero p { color: var(--muted); font-size: 1.02rem; max-width: 700px; }
+    .cta {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      background: var(--green); color: white; text-decoration: none; font-weight: 800;
+      font-size: 1.02rem; padding: 16px 24px; border-radius: 14px; margin-top: 18px;
+      box-shadow: 0 10px 24px rgba(37,211,102,.28);
+    }
+    .cta:hover { filter: brightness(.95); }
+    .video-box { margin-top: 18px; border: 2px solid var(--line); border-radius: var(--radius); background: #fff; padding: 14px; box-shadow: var(--shadow); }
+    .video-box a { color: var(--brand); font-weight: 700; }
+    .grid-2 { display: grid; gap: 18px; grid-template-columns: 1fr; }
+    .card {
+      background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 22px; box-shadow: var(--shadow);
+    }
+    .menu-item { display: flex; justify-content: space-between; gap: 10px; padding: 12px 0; border-bottom: 1px dashed #ecd0bb; font-weight: 600; }
+    .menu-item:last-child { border-bottom: none; }
+    .price { color: var(--brand-dark); font-weight: 800; white-space: nowrap; }
+    .weekend { border: 2px solid #ffd2a4; background: #fff7ef; }
+    .pill-urgency { display: inline-block; margin-top: 10px; background: #ffe9d1; color: #8a3f00; padding: 8px 12px; border-radius: 10px; font-size: .84rem; font-weight: 700; }
+    h2 { font-size: clamp(1.5rem, 5vw, 2.3rem); margin-bottom: 12px; }
+    .short { color: var(--muted); max-width: 760px; }
+    ul.clean { list-style: none; margin-top: 8px; }
+    ul.clean li { padding: 7px 0; font-weight: 600; }
+    .steps .step { padding: 14px; border-radius: 14px; background: #fff; border: 1px solid var(--line); }
+    .steps .step b { color: var(--brand-dark); }
+    .social { background: linear-gradient(180deg, #fff, #fff8ef); }
+    .quote { margin-top: 10px; padding: 14px; border-left: 4px solid var(--accent); background: #fff; border-radius: 8px; font-style: italic; }
+    .important { background: #2b1b12; color: #fff8ef; border-radius: var(--radius); padding: 24px; }
+    .important p { margin-top: 10px; color: #f8dbc6; }
+    .maps-btn { background: var(--brand); color: #fff; text-decoration: none; font-weight: 800; padding: 14px 18px; border-radius: 12px; display: inline-block; margin-top: 14px; }
+    .final {
+      background: linear-gradient(135deg, var(--brand-dark), var(--brand));
+      color: white; border-radius: 24px; text-align: center; padding: 38px 18px;
+    }
+    .final h2 { margin-bottom: 8px; }
+    .floating {
+      position: fixed; bottom: 18px; right: 14px; z-index: 99;
+    }
+    @media (min-width: 780px) {
+      section { padding: 74px 0; }
+      .grid-2 { grid-template-columns: 1fr 1fr; }
+      .hero p { font-size: 1.1rem; }
     }
   </style>
 </head>
 <body>
-
-<!-- FLOATING BUTTON -->
-<a href="#reservar" class="float-btn">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-  </svg>
-  Agendar sesión
-</a>
-
-<!-- NAV -->
-<nav>
-  <div class="logo">
-    <span class="logo-dot"></span>
-    Soluciones Académicas
-  </div>
-  <a href="#reservar" class="nav-cta">Reservar ahora</a>
-</nav>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-inner">
-    <div class="hero-badge">
-      <span></span>
-      Asesorías Personalizadas · 100% Online
-    </div>
-    <h1 class="hero-h1">
-      Aprueba <em>sin estrés</em> con<br>asesorías personalizadas<br>en tiempo real
-    </h1>
-    <p class="hero-sub">
-      Te explico paso a paso y resolvemos juntos tus dudas. Sin fórmulas al aire, sin confusión — aprendes de verdad y mejoras tus resultados desde la primera sesión.
-    </p>
-    <div class="hero-cta-wrap">
-      <a href="#reservar" class="btn-primary">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-        </svg>
-        Reserva tu asesoría ahora
-      </a>
-      <a href="#servicios" class="btn-ghost">
-        Ver materias disponibles
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="9 18 15 12 9 6"/>
-        </svg>
-      </a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat-item">
-        <div class="stat-num">+200</div>
-        <div class="stat-label">Estudiantes asesorados</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">98%</div>
-        <div class="stat-label">Satisfacción comprobada</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">60 min</div>
-        <div class="stat-label">Sesión enfocada</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">En línea · Flexible</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FILTER -->
-<section id="filter">
-  <div class="centered">
-    <span class="section-label">¿Esta asesoría es para ti?</span>
-    <h2 class="section-title">Está pensada para estudiantes que<br><em>realmente quieren mejorar</em></h2>
-    <p class="section-sub">No es un servicio de tareas rápidas. Es acompañamiento real para entender de fondo y rendir mejor.</p>
-  </div>
-  <div class="filter-grid">
-    <div class="filter-card">
-      <div class="filter-icon">📚</div>
-      <div>
-        <h3>Tienes materias difíciles</h3>
-        <p>Matemáticas, Física, Estadística u otras áreas exactas que no terminan de quedar claras.</p>
-      </div>
-    </div>
-    <div class="filter-card">
-      <div class="filter-icon">⏰</div>
-      <div>
-        <h3>Se acerca un examen importante</h3>
-        <p>Necesitas reforzar conceptos clave antes de un parcial, final o evaluación definitoria.</p>
-      </div>
-    </div>
-    <div class="filter-card">
-      <div class="filter-icon">😰</div>
-      <div>
-        <h3>La explicación en clase no te llega</h3>
-        <p>El profesor avanza rápido y no siempre puedes preguntar lo que necesitas.</p>
-      </div>
-    </div>
-    <div class="filter-card">
-      <div class="filter-icon">🎯</div>
-      <div>
-        <h3>Quieres resultados reales</h3>
-        <p>Estás dispuesto a dedicar tiempo y esfuerzo — solo necesitas la guía correcta para avanzar.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section id="servicios">
-  <div class="centered">
-    <span class="section-label">Materias disponibles</span>
-    <h2 class="section-title">Áreas en las que puedo<br><em>ayudarte hoy mismo</em></h2>
-    <p class="section-sub">Cada sesión es 100% personalizada según tu nivel, tu temario y tu objetivo concreto.</p>
-  </div>
-  <div class="services-grid">
-    <div class="service-card">
-      <span class="service-emoji">📐</span>
-      <h3>Matemáticas</h3>
-      <p>Álgebra, Cálculo diferencial e integral, Trigonometría, Ecuaciones, Funciones y más.</p>
-      <span class="service-tag">Todos los niveles</span>
-    </div>
-    <div class="service-card">
-      <span class="service-emoji">⚛️</span>
-      <h3>Física</h3>
-      <p>Mecánica, Cinemática, Dinámica, Termodinámica, Óptica y Electromagnetismo.</p>
-      <span class="service-tag">Bachillerato · Universidad</span>
-    </div>
-    <div class="service-card">
-      <span class="service-emoji">📊</span>
-      <h3>Estadística</h3>
-      <p>Probabilidad, Inferencia estadística, Regresión, Distribuciones y análisis de datos.</p>
-      <span class="service-tag">Universitario</span>
-    </div>
-    <div class="service-card">
-      <span class="service-emoji">🧮</span>
-      <h3>Álgebra Lineal</h3>
-      <p>Matrices, Vectores, Determinantes, Espacios vectoriales y transformaciones lineales.</p>
-      <span class="service-tag">Universitario</span>
-    </div>
-    <div class="service-card">
-      <span class="service-emoji">🔢</span>
-      <h3>Cálculo Avanzado</h3>
-      <p>Cálculo multivariable, Ecuaciones diferenciales, Series e Integrales múltiples.</p>
-      <span class="service-tag">Nivel avanzado</span>
-    </div>
-    <div class="service-card">
-      <span class="service-emoji">📝</span>
-      <h3>Preparación de exámenes</h3>
-      <p>Repaso intensivo, ejercicios tipo examen y estrategias para rendir al máximo bajo presión.</p>
-      <span class="service-tag">Antes de tu parcial</span>
-    </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section id="como-funciona">
-  <div class="centered">
-    <span class="section-label">Proceso sencillo</span>
-    <h2 class="section-title" style="color:var(--white)">Tres pasos para empezar<br>a mejorar tus notas</h2>
-    <p class="section-sub" style="color:rgba(255,255,255,.65)">Sin complicaciones, sin esperas. Agendas, te conectas y avanzas.</p>
-  </div>
-  <div class="steps-wrap">
-    <div class="step">
-      <div class="step-num">1</div>
-      <h3>Elige tu horario</h3>
-      <p>Selecciona el día y la hora que más te convenga desde el calendario en esta misma página. Es fácil y rápido.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <h3>Confirmación inmediata</h3>
-      <p>Recibirás un correo de confirmación con el enlace de la videollamada. Sin complicaciones adicionales.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <h3>Conéctate y aprende</h3>
-      <p>Entra a la sesión con tus materiales, plantea tus dudas y trabajamos juntos durante 60 minutos enfocados en ti.</p>
-    </div>
-  </div>
-</section>
-
-<!-- VALUE -->
-<section id="valor">
-  <div class="value-inner">
-    <div>
-      <span class="section-label">¿Qué incluye tu sesión?</span>
-      <h2 class="section-title">Todo lo que necesitas<br><em>en una sola sesión</em></h2>
-      <p class="section-sub">Cada asesoría está diseñada para que salgas con conceptos claros y confianza real.</p>
-      <ul class="value-list">
-        <li>
-          <div class="check-icon">
-            <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="2 6 5 9 10 3"/>
-            </svg>
-          </div>
-          Explicación personalizada adaptada a tu nivel y tu temario específico
-        </li>
-        <li>
-          <div class="check-icon">
-            <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="2 6 5 9 10 3"/>
-            </svg>
-          </div>
-          Resolución de ejercicios en tiempo real — los ves resueltos paso a paso
-        </li>
-        <li>
-          <div class="check-icon">
-            <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="2 6 5 9 10 3"/>
-            </svg>
-          </div>
-          Espacio para preguntar todo lo que necesites, sin prisas ni juicios
-        </li>
-        <li>
-          <div class="check-icon">
-            <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="2 6 5 9 10 3"/>
-            </svg>
-          </div>
-          Recursos o ejercicios adicionales para que practiques después de la sesión
-        </li>
-        <li>
-          <div class="check-icon">
-            <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="2 6 5 9 10 3"/>
-            </svg>
-          </div>
-          Atención enfocada 100% en ti — sin grupos, sin distracciones
-        </li>
-      </ul>
-    </div>
-    <div class="value-visual">
-      <h3>Tu sesión de asesoría</h3>
-      <p class="tagline">Lo que recibes en cada encuentro</p>
-      <div class="include-item"><div class="include-dot"></div>Videollamada 1 a 1 en tiempo real</div>
-      <div class="include-item"><div class="include-dot"></div>Pizarra digital interactiva</div>
-      <div class="include-item"><div class="include-dot"></div>Ejercicios personalizados</div>
-      <div class="include-item"><div class="include-dot"></div>Resumen de la sesión por correo</div>
-      <div class="include-item"><div class="include-dot"></div>Seguimiento si necesitas más sesiones</div>
-      <div class="price-tag">
-        <div class="price-label">Modalidad</div>
-        <div class="price-duration">📅 60 minutos · Online · En vivo</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- RESULTS -->
-<section id="resultados">
-  <div class="centered">
-    <span class="section-label">Lo que lograrás</span>
-    <h2 class="section-title">Resultados que notas<br><em>desde la primera sesión</em></h2>
-  </div>
-  <div class="results-grid">
-    <div class="result-card">
-      <span class="result-emoji">💡</span>
-      <h3>Claridad inmediata</h3>
-      <p>Entiendes los conceptos que antes te costaban, sin memorización sin sentido.</p>
-    </div>
-    <div class="result-card">
-      <span class="result-emoji">📈</span>
-      <h3>Mejores calificaciones</h3>
-      <p>Llegas a tus exámenes más preparado y con mayor seguridad para responder.</p>
-    </div>
-    <div class="result-card">
-      <span class="result-emoji">😌</span>
-      <h3>Menos estrés</h3>
-      <p>Dejas de sentir que estás solo frente a los temas difíciles — avanzas con apoyo real.</p>
-    </div>
-    <div class="result-card">
-      <span class="result-emoji">🚀</span>
-      <h3>Confianza propia</h3>
-      <p>Desarrollas la capacidad de resolver problemas sin depender de que alguien te diga qué hacer.</p>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section id="testimonios">
-  <div class="centered">
-    <span class="section-label">Testimonios reales</span>
-    <h2 class="section-title">Lo que dicen quienes<br><em>ya tomaron asesoría</em></h2>
-  </div>
-  <div class="testimonials-grid">
-    <div class="testi-card">
-      <div class="stars">★★★★★</div>
-      <p class="testi-text">"Llevaba semanas estancada en Cálculo y en una sola sesión entendí lo que no había podido asimilar en todo el semestre. La explicación fue muy clara y se adaptó exactamente a mis dudas. Definitivamente voy a volver."</p>
-      <div class="testi-author">
-        <div class="testi-avatar av1">VA</div>
-        <div>
-          <div class="testi-name">Valentina A.</div>
-          <div class="testi-detail">Ingeniería Industrial · 2.º año</div>
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <span class="tag">🔥 Sabor paceño que se siente en cada bocado</span>
+        <h1>Chicharrón crujiente y fricasé bien caliente…<br>como en casa de la abuela 😍</h1>
+        <p>En <b>Restaurant Doña Remedios</b> preparamos tradición paceña con carne de calidad (cerdo de cabaña), porciones contundentes y atención rápida para tu almuerzo.</p>
+        <a class="cta" href="https://wa.me/59174855203?text=Hola%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">📲 Pedir por WhatsApp ahora</a>
+        <div class="video-box">
+          <p><b>🎥 Mira cómo sale ese plato recién hecho:</b></p>
+          <a href="https://www.facebook.com/share/r/1B6Q64mGr5/" target="_blank" rel="noopener">Ver video de Doña Remedios</a>
         </div>
       </div>
-    </div>
-    <div class="testi-card">
-      <div class="stars">★★★★★</div>
-      <p class="testi-text">"Tenía un parcial de Física en dos días y no entendía nada de cinemática. La asesoría fue increíblemente útil — me enseñó a razonar los problemas en lugar de solo memorizarlos. Saqué 8.5 en el examen."</p>
-      <div class="testi-author">
-        <div class="testi-avatar av2">DM</div>
-        <div>
-          <div class="testi-name">Diego M.</div>
-          <div class="testi-detail">Bachillerato Técnico · 5.º semestre</div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>🤤 Antojo real, sabor real</h2>
+        <p class="short">Crujiente por fuera, jugoso por dentro, caldito que levanta el alma y ese sabor casero que solo encuentras cuando la receta se respeta de verdad.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>🍽️ Menú destacado</h2>
+        <div class="grid-2">
+          <article class="card">
+            <h3>Todos los días</h3>
+            <div class="menu-item"><span>Chicharrón</span><span class="price">Bs 40</span></div>
+            <div class="menu-item"><span>Chicharrón de pollo</span><span class="price">Bs 40</span></div>
+            <div class="menu-item"><span>Chicharrón especial</span><span class="price">Bs 55</span></div>
+            <div class="menu-item"><span>Fricasé</span><span class="price">Bs 40</span></div>
+            <div class="menu-item"><span>Fricasé mixto</span><span class="price">Bs 50</span></div>
+            <div class="menu-item"><span>Chicharrón de pollo kids</span><span class="price">Bs 30</span></div>
+          </article>
+          <article class="card weekend">
+            <h3>Solo fines de semana</h3>
+            <div class="menu-item"><span>Pollo al horno</span><span class="price">Bs 45</span></div>
+            <div class="menu-item"><span>Lechón al horno</span><span class="price">Bs 60</span></div>
+            <span class="pill-urgency">⚠️ Disponible solo fines de semana — se acaba rápido al mediodía.</span>
+          </article>
+        </div>
+        <a class="cta" href="https://wa.me/59174855203?text=Hola%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">🔥 Quiero mi pedido ahora</a>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>🏠 ¿Qué nos hace diferentes?</h2>
+        <ul class="clean">
+          <li>✅ Sabor casero real, sin atajos.</li>
+          <li>✅ Receta tradicional paceña que conquista desde el primer bocado.</li>
+          <li>✅ Porciones contundentes para quedar bien servido.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="social">
+      <div class="wrap">
+        <h2>⭐ Más de 600 personas ya probaron Doña Remedios</h2>
+        <p class="short"><b>4.2 estrellas en Google</b> y clientes que vuelven por el sabor, la rapidez y la relación calidad/precio.</p>
+        <div class="quote">“Fricasé mixto delicioso”</div>
+        <div class="quote">“Atención rápida”</div>
+        <div class="quote">“Muy buena relación calidad/precio”</div>
+        <p style="margin-top:12px;font-weight:700;color:#8a2410;">🥇 El fricasé mixto es uno de los favoritos de la casa.</p>
+      </div>
+    </section>
+
+    <section class="steps">
+      <div class="wrap">
+        <h2>📲 Cómo pedir en 3 pasos</h2>
+        <div class="grid-2">
+          <div class="step"><b>Paso 1:</b> Escríbenos por WhatsApp.</div>
+          <div class="step"><b>Paso 2:</b> Elige tu plato favorito.</div>
+          <div class="step"><b>Paso 3:</b> Recoge tu pedido o disfruta en el local.</div>
         </div>
       </div>
-    </div>
-    <div class="testi-card">
-      <div class="stars">★★★★★</div>
-      <p class="testi-text">"Me ayudó con Estadística para mi trabajo de grado. Es muy paciente, explica con ejemplos reales y no avanza hasta que entiendes. El mejor dinero invertido en mi proceso académico."</p>
-      <div class="testi-author">
-        <div class="testi-avatar av3">LP</div>
-        <div>
-          <div class="testi-name">Laura P.</div>
-          <div class="testi-detail">Administración de Empresas · Último año</div>
-        </div>
+    </section>
+
+    <section>
+      <div class="wrap important">
+        <h2>ℹ️ Información importante</h2>
+        <p>🚫 No contamos con delivery por ahora. Te esperamos para <b>recojo</b> o para comer <b>en el local</b>.</p>
+        <p>➕ Yapa / caldo / aumento están disponibles y se pagan aparte — así armas tu plato a tu gusto.</p>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- SCARCITY -->
-<section id="escasez">
-  <div class="scarcity-badge">
-    <span class="blink">●</span> Cupos limitados por día
-  </div>
-  <h2>Solo hay pocos cupos disponibles esta semana</h2>
-  <p>Cada día tengo un número limitado de sesiones para garantizar atención de calidad a cada estudiante. Una vez llenos, el siguiente disponible puede ser en días.</p>
-  <div class="slots-bar">
-    <div class="slot taken">Lun</div>
-    <div class="slot taken">Mar</div>
-    <div class="slot taken">Mié</div>
-    <div class="slot free">Jue</div>
-    <div class="slot free">Vie</div>
-    <div class="slot free">Sáb</div>
-  </div>
-  <p class="slots-label">⚠️ Algunos horarios de esta semana ya están ocupados — agenda el tuyo ahora</p>
-  <a href="#reservar" class="btn-primary" style="font-size:1rem; padding:16px 36px;">
-    Asegurar mi cupo
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="9 18 15 12 9 6"/>
-    </svg>
-  </a>
-</section>
-
-<!-- BOOKING -->
-<section id="reservar">
-  <div class="booking-header">
-    <span class="section-label">Agenda tu sesión</span>
-    <h2 class="section-title">Reserva tu asesoría<br><em>ahora mismo</em></h2>
-    <p class="section-sub">Elige tu horario y asegura tu sesión. Sin llamadas, sin formularios — solo selecciona y listo.</p>
-    <div class="booking-meta">
-      <div class="meta-pill">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-        </svg>
-        Duración: 60 minutos
+    <section>
+      <div class="wrap">
+        <h2>📍 Estamos en el corazón de La Paz</h2>
+        <p class="short"><b>Av. Arce #2063, La Paz, Bolivia</b></p>
+        <p class="short" style="margin-top:8px;">Horarios:<br>Lunes 09:00–19:00 · Miércoles 09:00–20:00 · Jueves 09:00–20:30 · Viernes 09:00–20:40 · Sábado 09:00–19:00 · Domingo 09:00–17:00</p>
+        <a class="maps-btn" href="#" aria-label="Abrir Google Maps">🗺️ Ver en Google Maps</a>
       </div>
-      <div class="meta-pill">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
-        </svg>
-        Modalidad: Online
+    </section>
+
+    <section>
+      <div class="wrap final">
+        <h2>¿Ya se te antojó? 🔥</h2>
+        <p>Haz tu pedido ahora por WhatsApp y asegura tu almuerzo antes de que se termine tu favorito.</p>
+        <a class="cta" href="https://wa.me/59174855203?text=Hola%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">💬 Pedir por WhatsApp</a>
       </div>
-      <div class="meta-pill">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 012 4.18C2 3.08 2.9 2 3.99 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-        </svg>
-        Confirmación por correo
-      </div>
-    </div>
-  </div>
+    </section>
+  </main>
 
-  <div class="calendly-wrapper">
-    <!-- Calendly inline widget begin -->
-    <div class="calendly-inline-widget"
-         data-url="https://calendly.com/joseph-calvert72/soluciones-academicas"
-         style="min-width:320px;height:750px;">
-    </div>
-    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-    <!-- Calendly inline widget end -->
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section id="cta-final">
-  <h2>Agenda ahora y asegura tu cupo</h2>
-  <p>No esperes a estar al límite antes de un examen. Toma acción hoy, y llega preparado cuando más importa.</p>
-  <a href="#reservar" class="btn-primary">
-    Ir al calendario de reservas
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="9 18 15 12 9 6"/>
-    </svg>
-  </a>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">
-    <span class="logo-dot"></span>
-    Soluciones Académicas
-  </div>
-  <p>© 2025 Soluciones Académicas · Asesorías personalizadas · 100% Online</p>
-  <p style="font-size:.78rem; color:rgba(255,255,255,.35);">Todos los derechos reservados</p>
-</footer>
-
+  <a class="cta floating" href="https://wa.me/59174855203?text=Hola%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">🍽️ Pedir ahora</a>
 </body>
 </html>
